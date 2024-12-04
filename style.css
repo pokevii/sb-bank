@@ -1,0 +1,165 @@
+/* || General setup */
+
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 10px;
+    background-color: #ffffffc8;
+  }
+  
+  body {
+    width: 70%;
+    min-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* || typography */
+  
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: #2a2a2a;
+  }
+  
+  p, input, li, div, label, tr {
+    font-family: "Barlow", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #2a2a2a;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 2px 2px 10px black;
+  }
+  
+  h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 2.2rem;
+  }
+  
+  p, li, label {
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+  
+  /* || header layout */
+  
+  header {
+    margin-bottom: 10px;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+
+  main, header, nav, article, aside, footer, section {
+    background-color: rgba(255, 152, 111, 0.5);
+    padding: 1%;
+  }
+  
+  h1 {
+    flex: 5;
+    text-transform: uppercase;
+  }
+  
+  header img {
+    display: block;
+    height: 60px;
+    padding-top: 20.15px;
+  }
+  
+  nav {
+    height: 50px;
+    flex: 100%;
+    display: flex;
+  }
+  
+  nav ul {
+    padding: 0;
+    list-style-type: none;
+    flex: 2;
+    display: flex;
+  }
+  
+  nav li {
+    display: inline;
+    text-align: center;
+    flex: 1;
+  }
+
+  label {
+    display: block;
+    width: 300px;
+  }
+  
+  .note {
+    font-size: 1.3rem;
+    text-align: left;
+  }
+
+  tr:nth-child(even) {
+    background-color:white
+  }
+
+  tr:nth-child(odd) {
+    background-color: rgb(246, 207, 207);
+  }
+
+  .header {
+    background-color: rgb(251, 147, 147);
+  }
+  
+  /* || main layout */
+  
+  main {
+    display: flex;
+  }
+  
+  article, section {
+    flex: 4;
+  }
+  
+  aside {
+    flex: 1;
+    margin-left: 10px;
+    padding: 1%;
+  }
+  
+  aside a {
+    display: block;
+    float: left;
+    width: 50%;
+  }
+  
+  aside img {
+    max-width: 100%;
+  }
+  
+  footer {
+    margin-top: 10px;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse:collapse;
+  }
+  
+  th, td {
+    padding: 7px;
+  }
+
+  .striped {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
