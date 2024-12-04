@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<!-- This is all of the metadata. Should be the same for all pages. -->
 <html lang="en-US">
     <head>
         <title>Template Page</title>
@@ -7,10 +7,13 @@
         <meta name="viewport" content="width=device-width"/>
         <meta name="description" content="A mock bank website made for CSE 5720."/>
         
-        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">        
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
         <link rel="Shortcut Icon" href="../image/favicon.ico" type="image/favicon">
-        <link rel="stylesheet" href="../style.css"/>
+        <link rel="stylesheet" href="style.css"/>
     </head>
+
+
+
 
     <!-- This is the navigation menu. -->
     <nav>
@@ -19,9 +22,13 @@
         </ul>
     </nav>
 
+
+
+<!-- Below is where you put all of your HTML and PHP. Examples below -->
     <body>
         <h2>Template Page</h2><br>
 
+        <!-- You always want this bit of PHP here if you need to do anything w/ the database. -->
         <?php
             //Connect to the database.
             $servername = "localhost";

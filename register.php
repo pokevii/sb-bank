@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start()?>
 <html lang="en-US">
     <head>
         <title>Template Page</title>
@@ -9,7 +9,7 @@
         
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
         <link rel="Shortcut Icon" href="../image/favicon.ico" type="image/favicon">
-        <link rel="stylesheet" href="../style.css"/>
+        <link rel="stylesheet" href="style.css"/>
     </head>
 
     <nav>
@@ -18,13 +18,39 @@
         </ul>
     </nav>
 
+    <?php
+        $servername = "localhost";
+        $username = "testacc";
+        $password = "cse5720";
+        $dbname = "sbbank";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = mysqli_query($conn, "SELECT BranchCity FROM branch");
+        $data = $sql->fetch_all(MYSQLI_ASSOC);
+        $idcounter = 1;
+    ?>
+
     <body>
-        <form name="registration" method="post" action="createaccount.php">
+        <form name="registration" method="post" action="insertaccount.php">
             <label for="Username">Username: </label>
             <input type="text" name="Username"><br>
             
             <label for="Password">Password: </label>
             <input type="password" name="Password"><br>
+
+            <label for="BranchID">Branch: </label>
+            <select name="BranchID" id="BranchID">
+                <option value=""></option>
+                <?php foreach ($data as $row): ?>
+                <option value="<?=htmlspecialchars($idcounter) ?>">
+                    <?= htmlspecialchars($row['BranchCity']) ?>
+                    <?php $idcounter += 1; ?>
+                </option>
+                <?php endforeach ?>
+            </select><br><br>
 
             <label for="FirstName">First Name: </label>
             <input type="text" name="FirstName"><br>
@@ -40,9 +66,6 @@
             
             <label for="Email">Email Address: </label>
             <input type="text" name="Email"><br>
-
-            <label for="Testanswer">Security Question Answer: </label>
-            <input type="text" name="Testanswer"><br>
 
             <label for="Address">Home Address: </label>
             <input type="text" name="Address"><br>
