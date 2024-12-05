@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <html lang="en-US">
     <head>
         <title>SB Bank - Accounts</title>
@@ -13,7 +14,8 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><span><a href=index.html>Home</a></span></li>
+            <li><span><a href=accounts.php>Accounts</a></span></li>
         </ul>
     </nav>
 
@@ -33,13 +35,16 @@
             $accbal = $_REQUEST["AccountBalance"];
             $customerid = $_SESSION["CustomerID"];
 
-            $sql = "INSERT INTO account (CustomerID, AccountName, AccountType, AccountBalance)
-            VALUES ('$customerid', '$accname', '$acctype', '$accbal')";
-
-            if ($conn->query($sql) === TRUE) {
-                echo "<p>Account created! Return to your accounts page <a href=accounts.php>here.</a></p>";
+            if ($acctype !== null) {
+                    $sql = "INSERT INTO account (CustomerID, AccountName, AccountType, AccountBalance)
+                    VALUES ('$customerid', '$accname', '$acctype', '$accbal')";
+                if ($conn ->query($sql) === TRUE) {
+                    echo "<p>Account created successfully! Navigate to your account using the bar above.".$sql."<br>".$conn->error."</p>";
+                } else {
+                    echo "<p>Error with account creation. Try <a href=\"login.php\">logging in</a>, your session may have expired.".$sql."<br>".$conn->error."</p>";
+                }
             } else {
-                echo "<p>Error with account creation. Try <a href=\"login.php\">logging in</a>, your session may have expired.".$sql."<br>".$conn->error."</p>";
+                echo "<p>Invalid account type or account type was null.<a href=\"login.php\">Try again.</a>".$sql."<br>".$conn->error."</p>";
             }
 
             $conn->close();

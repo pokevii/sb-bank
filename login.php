@@ -11,12 +11,17 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
 
+    <nav>
+        <ul>
+            <li><span><a href=index.html>Home</a></span></li>
+            <li><span><a href=accounts.php>Accounts</a></span></li>
+        </ul>
+    </nav>
+
     <body>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></span></li>
-        </nav>
         <?php
+            ini_set('session.gc_maxlifetime', 3600);
+            session_set_cookie_params(3600);
             $session = session_start();
             if(!$session){
                 echo("Something went wrong. Session could not be started. Login information will not be saved.<br>");

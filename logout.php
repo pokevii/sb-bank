@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>SB Bank - Home</title>
+        <title>SB Bank - Log Out</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width"/>
@@ -13,16 +13,21 @@
 
     <nav>
         <ul>
-            <li><span>Home</span></li>
+            <li><span><a href=index.html>Home</a></span></li>
             <li><span><a href=accounts.php>Accounts</a></span></li>
         </ul>
     </nav>
 
     <body>
-        <h2>Welcome to SB Bank!</h2>
-        
-        <p>Please <a href="login.html">log in</a> or <a href="newcustomer.php">register</a> to access account details.</p><br>
-        <!-- <img src="happy folks.jpg" alt="some happy folks"> -->
-        <p>Click <a href="localdbtest.php">here</a> to test if local database calls work in php.</p>
+        <?php
+            session_start();
+            if(session_destroy()){
+                echo("<p>Log out successful!</p>");
+            } else {
+                echo("<p>Something went wrong while logging out.</p>");
+            }
+            
+            
+        ?>
     </body>
 </html>

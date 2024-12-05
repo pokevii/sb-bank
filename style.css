@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+}
+
 /* || General setup */
 
 html, body {
@@ -27,8 +32,8 @@ html, body {
   }
   
   p, input, li, div, label, tr {
-    font-family: "Barlow", sans-serif;
-    font-weight: 300;
+    font-family: "Nunito Sans";
+    font-weight: 400;
     font-style: normal;
     color: #2a2a2a;
   }
@@ -40,6 +45,9 @@ html, body {
   }
   
   h2 {
+    font-family: "Nunito Sans";
+    font-weight: 600;
+    font-style: bold;
     font-size: 3rem;
     text-align: center;
   }
@@ -163,16 +171,55 @@ html, body {
     margin-right: auto;
   }
 
-  .grid_container {
-    display: grid;
+.account-balance  {grid-area: main;}
+.account-name     {grid-area: header;}
+.account-delete   {grid-area: options;}
+
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
     padding: 10px;
     row-gap: 30px;
     column-gap: 30px;
+    margin: 0 auto;
+    background-color:rgba(147, 171, 251, 0.3);
+    
   }
 
-  .grid_item {
-    border: 1px solid black;
-    padding: 1px;
-    grid-row-start: 1;
+  .account-container {
+    display: grid;
+    border: 2px solid black;
+    background-color: rgba(156, 147, 251, 0.7);
+    width: 30%;
+
+    grid-template-areas:
+    'header options'
+    'main main'
+    'footer footer';
+
+    grid-template-rows: 20% 80%;
+    grid-template-columns: 90% 10%;
+
+    padding: 5px;
+  }
+
+  .account-balance {
+    padding: 2px;
+    font-size: 30px;
+    justify-self: left;
+  }
+
+  .account-name {
+    font-style: italic;
+    font-size: 12px;
+    float: left;
+  }
+
+  .account-delete {
+    float: right;
+  }
+
+  .account-footer {
+    float: left;
   }
   

@@ -14,7 +14,8 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><span><a href=index.html>Home</a></span></li>
+            <li><span><a href=accounts.php>Accounts</a></span></li>
         </ul>
     </nav>
 

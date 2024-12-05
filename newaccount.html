@@ -14,14 +14,13 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><span><a href=index.html>Home</a></span></li>
+            <li><span><a href=accounts.php>Accounts</a></span></li>
         </ul>
     </nav>
 
     <body>
         <form name="registration" method="post" action="insertaccount.php">
-            <label for="AccountName">Account Name: </label>
-            <input type="text" name="AccountName"><br>
 
             <label for="AccountType">Account Type: </label>
             <select name="AccountType" id="AccountType">
@@ -31,7 +30,10 @@
             </select><br><br>
 
             <label for="AccountBalance">Initial Balance: $</label>
-            <input type="number" name="AccountBalance" min="0.00" step="0.01"><br>
+            <input type="number" name="AccountBalance" min="0.00" step="0.01"><br><br>
+
+            <label for="AccountName">Account Name: </label>
+            <input type="text" name="AccountName" placeholder="(optional)"><br><br>
 
             <button type="submit">Submit</button>
         </form>
