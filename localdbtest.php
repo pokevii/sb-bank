@@ -34,6 +34,14 @@
             $result = $conn->query($sql);
         ?>
 
+        <?php
+        if($_SESSION["logged_in"]){
+            echo("<p>Welcome, ".$_SESSION["FirstName"]." ".$_SESSION["LastName"]."!</p><br>");
+        } else {
+            echo("<p>You are not currently logged in.</p><br>");
+        }
+        ?>
+
         <table class="striped">
             <tr class="header">
                 <td><strong>BranchID</strong></td>

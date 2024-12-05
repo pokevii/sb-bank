@@ -34,7 +34,7 @@
     ?>
 
     <body>
-        <form name="registration" method="post" action="insertaccount.php">
+        <form name="registration" method="post" action="insertcustomer.php">
             <label for="Username">Username: </label>
             <input type="text" name="Username"><br>
             

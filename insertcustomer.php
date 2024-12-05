@@ -1,6 +1,6 @@
 <html lang="en-US">
     <head>
-        <title>SB Bank - Accounts</title>
+        <title>SB Bank - Registration</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width"/>
@@ -28,18 +28,27 @@
             die("Connection failed: " . $conn->connect_error);
             } 
 
-            $accname = $_REQUEST["AccountName"];
-            $acctype = $_REQUEST["AccountType"];
-            $accbal = $_REQUEST["AccountBalance"];
-            $customerid = $_SESSION["CustomerID"];
 
-            $sql = "INSERT INTO account (CustomerID, AccountName, AccountType, AccountBalance)
-            VALUES ('$customerid', '$accname', '$acctype', '$accbal')";
+            $userid = $_REQUEST['Username'];
+            $password = $_REQUEST['Password'];
+            $hashword = password_hash($password, PASSWORD_DEFAULT);
+
+            $branchID = $_REQUEST['BranchID'];
+            $firstname = $_REQUEST['FirstName'];
+            $lastname = $_REQUEST['LastName'];
+            $dob = $_REQUEST['DOB'];
+            $phone = $_REQUEST['Phone'];
+            $email = $_REQUEST['Email'];
+            $address = $_REQUEST['Address'];
+            $bloodtype = $_REQUEST['BloodType'];
+
+            $sql = "INSERT INTO customer (BranchID, Username, Pass, FirstName, LastName, DOB, Phone, Email, Address, BloodType)
+            VALUES ('$branchID', '$userid', '$hashword', '$firstname', '$lastname', '$dob', '$phone', '$email', '$address', '$bloodtype')";
 
             if ($conn->query($sql) === TRUE) {
-                echo "<p>Account created! Return to your accounts page <a href=accounts.php>here.</a></p>";
+                echo "<p>Registration complete! <a href=\"login.php\">Log in here.</a></p>";
             } else {
-                echo "<p>Error with account creation. Try <a href=\"login.php\">logging in</a>, your session may have expired.".$sql."<br>".$conn->error."</p>";
+                echo "<p>Error with registration.".$sql."<br>".$conn->error."</p>";
             }
 
             $conn->close();

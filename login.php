@@ -31,14 +31,16 @@
             die("Connection failed: " . $conn->connect_error);
             }
 
+            //get input username and password
             $username = $_REQUEST['userid'];
             $password = $_REQUEST['pass'];
 
-            //i know its bad to store plaintext passwords but we're just goofin here
+            //get encrypted password from database and verify it
             $sql = "SELECT Pass FROM customer WHERE Username = '$username'";
             $result = $conn->query($sql);
             $hashword = $result->fetch_assoc()["Pass"];
 
+            //get customer info if password is correct
             if(password_verify($password, $hashword)){
                 $sql = "SELECT * FROM customer WHERE Username = '$username'";
                 $result = $conn->query($sql);
@@ -48,6 +50,7 @@
                 $_SESSION["Username"] = $username;
                 $_SESSION["FirstName"] = $info["FirstName"];
                 $_SESSION["LastName"] = $info["LastName"];
+                $_SESSION["CustomerID"] = $info["CustomerID"];
 
                 $firstname = $_SESSION["FirstName"];
 
