@@ -57,11 +57,27 @@
                 echo("<p>No accounts found. Make one <a href=newaccount.html>here!</a></p>");
             } else { ?>
                 <div class="grid-container">
-                <?php foreach ($data as $account): ?>
+                <?php foreach ($data as $account): 
+                    $accid = $account["AccountID"];
+                    ?>
                     <div class="account-container">
-                        <div class="account-name"><?=htmlspecialchars($account["AccountName"]);?></div>
-                        <div class="account-delete"><a href="index.html"><img src="image/minus.png" alt="Delete account" width=15px></div></a>
-                        <div class="account-balance">$<?=htmlspecialchars(round($account["AccountBalance"], 2, 1));?></div> 
+                        <div class="account-name">
+                            <?=strtoupper(htmlspecialchars($account["AccountType"]));?> ACCOUNT
+                            <?php 
+                            if($account["AccountName"] != null){
+                                echo(": \"".htmlspecialchars($account["AccountName"]."\""));
+                            } ?>
+                        </div>
+                        <div class="account-delete">
+                            <a href="#" style="float: right"><img src="image/minus.png" alt="Delete account" width=15px></a>
+                        </div>
+                        <div class="account-balance">$<?=htmlspecialchars(round($account["AccountBalance"], 2, 1));?></div>
+                        <div class="account-footer">Available Balance</div>
+                        <div class="account-options">
+                            <a href="newtransaction.php?id=<?=htmlspecialchars($accid)?>">> Make a transaction</a><br>
+                            <a href="viewtransactions.php?id=<?=htmlspecialchars($accid)?>">> View transaction history</a>
+                        </div> 
+                        
                     </div>
                     
                 

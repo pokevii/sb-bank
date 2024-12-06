@@ -39,12 +39,12 @@
                     $sql = "INSERT INTO account (CustomerID, AccountName, AccountType, AccountBalance)
                     VALUES ('$customerid', '$accname', '$acctype', '$accbal')";
                 if ($conn ->query($sql) === TRUE) {
-                    echo "<p>Account created successfully! Navigate to your account using the bar above.".$sql."<br>".$conn->error."</p>";
+                    echo "<p>Account created successfully! Navigate to your account using the bar above.";
                 } else {
-                    echo "<p>Error with account creation. Try <a href=\"login.php\">logging in</a>, your session may have expired.".$sql."<br>".$conn->error."</p>";
+                    echo "<p>Error with account creation. Try <a href=\"login.php\">logging in</a>, your session may have expired.";
                 }
             } else {
-                echo "<p>Invalid account type or account type was null.<a href=\"login.php\">Try again.</a>".$sql."<br>".$conn->error."</p>";
+                echo "<p>Invalid account type or account type was null.<a href=\"login.php\">Try again.</a>";
             }
 
             $conn->close();
